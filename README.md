@@ -35,7 +35,7 @@ Para verificar se o Python está instalado, abra o terminal e execute:
 python --version
 ```
 
-### 📥 Passo 1 — Baixar o sistema
+### Passo 1 — Baixar o sistema
 
 **Opção A — Via Git (recomendado):**
 
@@ -55,7 +55,7 @@ cd achados-e-perdidos
 cd achados-e-perdidos
 ```
 
-### 📦 Passo 2 — Instalar as dependências
+### Passo 2 — Instalar as dependências
 
 ```bash
 # Criar o ambiente virtual
@@ -71,7 +71,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 🗄️ Passo 3 — Configurar o Banco de Dados
+### Passo 3 — Configurar o Banco de Dados
 
 O sistema cria o banco de dados automaticamente na primeira execução. Nenhuma instalação adicional é necessária para o uso em modo local (SQLite).
 
@@ -87,7 +87,7 @@ Em seguida, crie o banco no PostgreSQL:
 createdb achados_perdidos
 ```
 
-### ▶️ Passo 4 — Executar o sistema
+### Passo 4 — Executar o sistema
 
 ```bash
 python run.py
@@ -101,7 +101,7 @@ http://localhost:5000
 
 Você verá a tela de login do sistema. Crie seu usuário na opção **"Cadastrar"** e comece a usar.
 
-### 🛑 Para encerrar
+### Para encerrar
 
 Pressione `Ctrl + C` no terminal para parar o servidor.
 
@@ -111,7 +111,7 @@ Pressione `Ctrl + C` no terminal para parar o servidor.
 
 > Siga este guia se você vai **contribuir com o desenvolvimento** do sistema.
 
-### 3.1 — Clonar o repositório
+### Passo 1 — Clonar o repositório
 
 ```bash
 git clone https://github.com/<usuario>/achados-e-perdidos.git
@@ -120,7 +120,7 @@ cd achados-e-perdidos
 
 Ou baixe o ZIP conforme descrito na seção anterior e extraia localmente.
 
-### 3.2 — Preparar o ambiente de desenvolvimento
+### Passo 2 — Preparar o ambiente de desenvolvimento
 
 ```bash
 # Criar o ambiente virtual
@@ -136,7 +136,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3.3 — Executar o projeto em modo de desenvolvimento
+### Passo 3 — Executar o projeto em modo de desenvolvimento
 
 Vá para a raiz do projeto e execute:
 
@@ -150,11 +150,11 @@ Acesse no navegador:
 http://localhost:5000
 ```
 
-Você deverá ver a tela inicial do sistema **Achados e Perdidos**.
+Você deverá ver a tela inicial do sistema **Achei!**.
 
 O arquivo `config.py` na raiz controla o modo de execução. Por padrão, o ambiente é `development`, utilizando SQLite (`achados.db`) gerado automaticamente.
 
-### 3.4 — Executar os testes
+### Passo 4 — Executar os testes
 
 ```bash
 # Testes de unidade
@@ -164,7 +164,7 @@ pytest tests/unit/ -v
 pytest tests/selenium/ -v
 ```
 
-### 3.5 — Registrar suas contribuições no Git
+### Passo 5 — Registrar suas contribuições no Git
 
 Todo membro da equipe deve commitar a partir de sua própria máquina:
 
