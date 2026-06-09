@@ -1,0 +1,21 @@
+Regras de Verificação e Análise de Requisitos
+Este documento estabelece os critérios rigorosos e mensuráveis para a escrita, formatação e verificação dos requisitos do projeto. Baseando-se nas diretrizes clássicas de Especificação de Requisitos de Rogério Magela, estas regras eliminam a subjetividade, garantindo a rastreabilidade, verificabilidade e clareza de todos os artefatos gerados pela equipe.
+1. Padrões de Nomenclatura e Estrutura
+•	Prefixo Obrigatório: Todo requisito funcional deve iniciar com a tag [RFXXX]. Todo requisito não funcional deve iniciar com [NFXXX], onde XXX é uma sequência numérica de três dígitos.
+•	Regra de Numeração por Bloco: O identificador do bloco deve conter o número do caso de uso (ex: [RF001]) e o seu nome. Se os casos de uso forem agrupados em subseções específicas (ex: "CRUD de Tabela X"), a numeração dos identificadores deve, obrigatoriamente, reiniciar em 001 a cada nova subseção. Dentro de uma mesma subseção, o número de identificação deve ser único.
+•	Estrutura de Dados Rígida: É proibido deixar campos estruturais em branco. Todo RF deve possuir exatamente: Atores, Prioridade, Resumo, Pré-condição, Pós-condição e Regras de Negócio. Caso algum atributo não se aplique ao contexto, o campo deverá ser preenchido com o texto exato "N/A".
+2. Critérios Objetivos de Especificação (Análise de Qualidade)
+Para aprovação de um requisito na fase de análise, ele deve passar nas seguintes regras de verificação automática:
+Regra 1: Controle de Extensão e Atomicidade (Clareza e Concisão)
+•	O campo "Resumo" de um requisito deve descrever uma, e apenas uma, ação de negócio.
+•	Critério de Aceite: O texto contido no campo "Resumo" deve ter o limite máximo estrito de 45 palavras. Se o texto ultrapassar esse limite, o requisito é automaticamente considerado complexo demais e deve ser subdividido.
+Regra 2: Verificabilidade Numérica e Bloqueio de Subjetividade (Testabilidade)
+•	É terminantemente proibido o uso de adjetivos e advérbios de valor interpretativo na especificação.
+•	Critério de Aceite 2.1 (Lista de Bloqueio): Requisitos que contiverem qualquer uma das seguintes palavras serão invalidados: fácil, rápido, intuitivo, bom, eficiente, robusto, adequado, amigável, instantâneo, transparente.
+•	Critério de Aceite 2.2 (Requisitos Não Funcionais): Todo RNF (Usabilidade, Desempenho, Segurança, Hardware) deve conter, obrigatoriamente, no mínimo 1 (um) valor numérico exato como métrica de teste (Exemplos válidos: "2,5 segundos", "100 usuários", "resolução de 360x800", "versão 115"). Se não houver métrica numérica para validação do teste, o RNF é reprovado.
+Regra 3: Rastreabilidade Explícita de Dependências (Consistência)
+•	Quando a "Pré-condição" de um requisito depender da execução prévia de outra funcionalidade do sistema, a dependência não pode ser descrita apenas em linguagem natural.
+•	Critério de Aceite: O campo "Pré-condição" deve conter, obrigatoriamente, a tag exata do requisito precedente entre parênteses.
+o	Exemplo Aprovado: "Usuário autenticado (RF001)." 
+o	Exemplo Reprovado: "O usuário precisa ter feito login antes."
+
