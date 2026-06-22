@@ -318,7 +318,20 @@ Essa prática ajuda a diferenciar valores fixos de variáveis comuns, facilitand
 
 # 5. Organização do Projeto
 
-> Será preenchido durante o desenvolvimento!
+O projeto **Achei!** está estruturado para garantir uma separação clara entre a interface do usuário, a lógica de servidor e o gerenciamento de dados. A organização segue o modelo abaixo:
+
+### Descrição dos Diretórios
+
+* **`Documentação/`**: Armazena todos os artefatos de engenharia de software, incluindo requisitos, casos de uso, regras de negócio e padrões definidos pela equipe.
+* **`src/`**: Contém todo o código-fonte executável da aplicação.
+    * **`backend/`**: Implementação da API e lógica de negócio utilizando *Flask*. Contém os controladores, rotas e modelos de dados.
+    * **`frontend/`**: Interface do sistema desenvolvida com HTML, CSS e JavaScript. Organizado para facilitar a manutenção das páginas e componentes visuais.
+    * **`database/`**: Scripts de criação, migração e manipulação do banco de dados (SQLite para ambiente de desenvolvimento e PostgreSQL para produção).
+* **`tests/`**: Suite de testes automatizados. A estrutura de subpastas aqui reflete a organização do `src` para garantir que todas as funcionalidades e regras de negócio sejam validadas.
+
+### Arquitetura de Dados
+
+O sistema utiliza o padrão **ORM (Object-Relational Mapping)** através do **SQLAlchemy**, o que permite que a aplicação interaja com o banco de dados utilizando objetos Python em vez de consultas SQL manuais, garantindo maior segurança contra *SQL Injection* e facilitando a migração entre o SQLite e o PostgreSQL.
 
 ---
 
