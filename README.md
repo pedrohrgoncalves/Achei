@@ -19,9 +19,147 @@ O sistema requer login de usuário (alunos, funcionários, etc) e oferece opera�
 
 ---
 
-## 2. Instruções para Uso
+## 2. Instruções para Uso do Git
 
-> Será preenchido durante o desenvolvimento!
+## 2.1. Estrutura de Pastas do Projeto
+
+O repositório deverá seguir a seguinte organização:
+
+```txt
+/
+├── Documentação/          # Documentação do projeto
+│   ├── Requisitos/        # Documento de requisitos, casos de uso e regras de negócio
+│   ├── Padrões Adotados/         
+│
+├── src/                   # Código-fonte da aplicação
+│   ├── backend/           # Código do backend
+│   ├── frontend/          # Código do frontend
+│   └── database/          # Scripts de banco de dados
+│
+├── tests/                 # Testes do sistema
+│
+├── README.md              # Descrição geral do projeto
+└── .gitignore             # Arquivos e pastas ignorados pelo Git
+```
+
+## 2.2. Regras de Branches
+
+Para evitar conflitos e facilitar o desenvolvimento em equipe, o projeto utilizará branches com finalidades específicas.
+
+### Branch principal
+
+```txt
+main
+```
+
+A branch `main` deve conter apenas versões estáveis do projeto. Nenhuma alteração deve ser enviada diretamente para ela sem revisão.
+
+### Branch de desenvolvimento
+
+```txt
+develop
+```
+
+A branch `develop` será usada para integrar as funcionalidades em desenvolvimento antes de enviá-las para a branch principal.
+
+
+O fluxo de trabalho do grupo será:
+
+Criar ou escolher uma issue relacionada à tarefa que será feita.
+Atualizar a branch develop antes de começar a alteração.
+Desenvolver a funcionalidade, correção ou documentação necessária.
+Realizar commits pequenos e objetivos, seguindo o padrão definido.
+Enviar as alterações para a branch develop.
+Quando a versão estiver funcionando, integrar a branch develop na branch main.
+Manter a branch main apenas com versões estáveis do projeto.
+
+Dessa forma, o grupo consegue trabalhar de maneira mais simples, utilizando a develop como branch de desenvolvimento geral e a main como branch final do projeto.
+
+## 2.3. Padrão de Commits
+
+As mensagens de commit devem seguir um padrão semântico, inspirado no modelo de commits convencionais. Esse padrão facilita a leitura do histórico e ajuda a entender rapidamente o tipo de alteração realizada.
+
+Formato:
+
+```txt
+tipo: descrição breve da alteração
+```
+
+Exemplos:
+
+```txt
+feat: adiciona cadastro de item perdido
+fix: corrige erro ao realizar login
+docs: atualiza documento de requisitos
+style: ajusta formatação do código
+refactor: reorganiza classes de usuário
+test: adiciona testes para cadastro de posto
+chore: atualiza configurações do projeto
+```
+
+## Tipos de Commit
+
+Os principais tipos de commit utilizados serão:
+
+| Tipo     | Uso                                               |
+| -------- | ------------------------------------------------- |
+| feat     | Adição de nova funcionalidade                     |
+| fix      | Correção de erro                                  |
+| docs     | Alterações na documentação                        |
+| style    | Ajustes de formatação, sem alterar funcionamento  |
+| refactor | Refatoração de código                             |
+| test     | Criação ou alteração de testes                    |
+| chore    | Configurações, dependências ou tarefas auxiliares |
+
+## Boas Práticas de Commit
+
+Os commits devem ser pequenos, claros e relacionados a uma única alteração.
+
+Evitar mensagens vagas como:
+
+```txt
+alterações
+atualização
+arrumando coisas
+commit final
+```
+
+Preferir mensagens específicas como:
+
+```txt
+feat: cria tela de cadastro de posto de apoio
+docs: adiciona diagrama de classes
+fix: corrige validação de campos obrigatórios
+```
+
+## 2.4. Uso de Issues
+
+Cada tarefa do projeto deverá ser registrada como uma issue no GitHub. As issues devem possuir título claro, descrição objetiva e, quando possível, estar associadas ao quadro Kanban do projeto.
+
+Exemplos de issues:
+
+```txt
+RF010 - Cadastrar Item Perdido (Backend)
+RF010 - Cadastrar Item Perdido (Frontend)
+RF010 - Criar tabela Item Perdido no banco de dados
+RF020 - Gerenciar Postos de Apoio
+```
+
+## 2.5. Pull Requests
+
+As alterações devem ser enviadas por meio de Pull Requests. Antes de aprovar um Pull Request, o grupo deverá verificar:
+
+* se o código está funcionando;
+* se não há conflitos;
+* se o padrão de commits foi seguido;
+* se a documentação foi atualizada quando necessário;
+* se a tarefa está vinculada à issue correspondente.
+
+
+## 2.6. Arquivo .gitignore
+
+O arquivo `.gitignore` será usado para impedir que arquivos desnecessários sejam enviados ao repositório, como arquivos temporários, arquivos de configuração local, caches e dependências geradas automaticamente.
+
 
 ---
 
