@@ -40,7 +40,6 @@ O repositório deverá seguir a seguinte organização:
 ├── achei.db
 ├── requirements.txt
 ├── README.md
-└── ABRIR_FRONTEND.html
 ```
 ### Pastas e arquivos internos estão detalhados na sessão 5: Organização do Projeto
 
@@ -349,7 +348,6 @@ Achei/
 ├── achei.db
 ├── requirements.txt
 ├── README.md
-└── ABRIR_FRONTEND.html
 
 ## Descrição dos Diretórios
 
@@ -412,11 +410,7 @@ README.md
 
 Arquivo principal de documentação do projeto.
 
-Pode conter instruções de instalação, execução, descrição das funcionalidades, tecnologias utilizadas e organização do sistema.
-
-ABRIR_FRONTEND.html
-
-Arquivo auxiliar para abrir a interface do sistema no navegador de forma simples.
+Contem instruções de instalação, execução, descrição das funcionalidades, tecnologias utilizadas e organização do sistema.
 
 ## Arquitetura de Dados
 
