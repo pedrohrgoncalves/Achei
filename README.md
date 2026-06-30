@@ -32,10 +32,10 @@ O repositório deverá seguir a seguinte organização:
 │   ├── Padrões Adotados/         
 │
 ├── Achei!/                # Código-fonte da aplicação
-│   ├── backend/           # Código do backend
+│   ├── app/               # Código do backend e criação e configuração do banco de dados
 │   ├── frontend/          # Código do frontend
-│   └── database/          # Scripts de banco de dados
-│   └── tests/             # Testes do sistema
+│   └── scripts/           # Scripts de banco de dados
+│   └── tests/             # Testar requisições do sistema
 │                
 │
 ├── README.md              # Descrição geral do projeto
@@ -282,55 +282,53 @@ Essa prática ajuda a diferenciar valores fixos de variáveis comuns, facilitand
 ---
 
 # 4. Tecnologias
-
 ### Frontend
-
-| Tecnologia | Versão | Finalidade |
-|---|---|---|
-| HTML | 5 (W3C Living Standard) | Estrutura das páginas web |
-| CSS | 3 (W3C Living Standard) | Estilização e layout responsivo |
-| JavaScript | ES2025 (ECMAScript 16) | Interatividade |
-
+Tecnologia	Versão	Finalidade
+HTML	Living Standard	Estrutura das páginas web. O HTML atual é tratado como padrão contínuo, não como “HTML 5” fixo.
+CSS	CSS Snapshot 2026	Estilização, tema visual em azul suave, responsividade e organização dos elementos da interface.
+JavaScript	ECMAScript 2026	Interatividade do sistema, controle de login, permissões de tela e chamadas fetch() para o backend.
 ### Backend
-
-| Tecnologia | Versão | Finalidade |
-|---|---|---|
-| Python | 3.13.13 | Linguagem de programação principal |
-| FastAPI | 3.1.3 | Framework web: rotas, templates, requisições HTTP |
-
+Tecnologia	Versão	Finalidade
+Python	3.14.x	Linguagem principal do backend. A versão está alinhada ao ambiente local usado no projeto; a família Python 3.14 é a versão estável atual.
+FastAPI	0.121.3	Framework web usado para criar a API, rotas HTTP, validação de dados e documentação automática em /docs. O FastAPI é voltado para construção de APIs em Python com type hints.
+Uvicorn	0.38.0	Servidor ASGI utilizado para executar a aplicação FastAPI localmente.
+Pydantic	2.x	Validação dos dados enviados nas requisições da API.
 ### Banco de Dados
-
-| Tecnologia | Versão | Finalidade |
-|---|---|---|
-| SQLite | 3.53.2 | Banco de dados em desenvolvimento (arquivo local, sem servidor) |
-
+Tecnologia	Versão	Finalidade
+SQLite	3.x	Banco de dados local utilizado no desenvolvimento. O banco é salvo em arquivo, geralmente achei.db, sem necessidade de servidor externo. A versão oficial atual do SQLite é 3.53.3.
+sqlite3	Módulo padrão do Python	Biblioteca usada pelo backend para conectar, criar tabelas e executar consultas SQL no SQLite.
 ### Outras
-
-| Tecnologia | Versão | Finalidade |
-|---|---|---|
-| VS Code | 1.123 | IDE de desenvolvimento |
-| Git | 2.x | Controle de versão |
-| GitHub | — | Hospedagem do repositório e colaboração entre membros |
-
----
-
+Tecnologia	Versão	Finalidade
+VS Code	1.120	IDE/editor utilizado no desenvolvimento do projeto.
+Git	2.55.0	Controle de versão do código-fonte.
+GitHub	—	Hospedagem do repositório e colaboração entre membros.
+Pytest	9.0.1	Execução dos testes automatizados do backend.
+HTTPX	0.28.1	Cliente HTTP usado nos testes automatizados da API.
 # 5. Organização do Projeto
 
-O projeto **Achei!** está estruturado para garantir uma separação clara entre a interface do usuário, a lógica de servidor e o gerenciamento de dados. A organização segue o modelo abaixo:
+O projeto Achei! está estruturado para garantir uma separação clara entre a interface do usuário, a lógica de servidor, os testes e os arquivos auxiliares. A organização segue o modelo abaixo:
 
 ### Descrição dos Diretórios
-
-* **`Documentação/`**: Armazena todos os artefatos de engenharia de software, incluindo requisitos, casos de uso, regras de negócio e padrões definidos pela equipe.
-* **`src/`**: Contém todo o código-fonte executável da aplicação.
-    * **`backend/`**: Implementação da API e lógica de negócio utilizando *Flask*. Contém os controladores, rotas e modelos de dados.
-    * **`frontend/`**: Interface do sistema desenvolvida com HTML, CSS e JavaScript. Organizado para facilitar a manutenção das páginas e componentes visuais.
-    * **`database/`**: Scripts de criação, migração e manipulação do banco de dados (SQLite para ambiente de desenvolvimento e PostgreSQL para produção).
-* **`tests/`**: Suite de testes automatizados. A estrutura de subpastas aqui reflete a organização do `src` para garantir que todas as funcionalidades e regras de negócio sejam validadas.
-
+app/: Contém o backend da aplicação, desenvolvido com FastAPI. É responsável pelas rotas, regras de negócio, validações, permissões de usuário e comunicação com o banco de dados.
+main.py: Arquivo principal da API. Contém as rotas do sistema, como login, cadastro de postos, registro de itens, retirada de itens e consulta de históricos.
+db.py: Responsável pela conexão com o banco SQLite, criação das tabelas e inserção dos usuários de demonstração.
+schemas.py: Define os modelos de entrada de dados usados pelo FastAPI para validar as requisições.
+frontend/: Contém a interface do sistema desenvolvida com HTML, CSS e JavaScript.
+index.html: Estrutura principal da interface.
+style.css: Estilização visual do sistema, incluindo o tema em azul suave e responsividade.
+script.js: Controla o login, permissões por perfil, exibição das funcionalidades e chamadas para a API do backend.
+tests/: Contém os testes automatizados do backend.
+test_crud.py: Testa os principais fluxos do sistema, incluindo CRUD de posto, item e termo de retirada.
+scripts/: Contém arquivos auxiliares para demonstração e teste da API.
+exemplo_requisicoes.http: Arquivo com exemplos de requisições HTTP para testar as rotas sem precisar usar o frontend.
+achei.db: Arquivo do banco de dados SQLite, criado automaticamente quando o backend é executado.
+requirements.txt: Lista as dependências Python necessárias para rodar o backend.
+ABRIR_FRONTEND.html: Atalho simples para abrir a interface do sistema no navegador.
 ### Arquitetura de Dados
 
-O sistema utiliza o padrão **ORM (Object-Relational Mapping)** através do **SQLAlchemy**, o que permite que a aplicação interaja com o banco de dados utilizando objetos Python em vez de consultas SQL manuais, garantindo maior segurança contra *SQL Injection* e facilitando a migração entre o SQLite e o PostgreSQL.
+O sistema utiliza SQLite como banco de dados local e o módulo sqlite3 do Python para executar as operações no banco. Diferente da versão anterior do texto, o projeto não usa Flask, SQLAlchemy, ORM ou PostgreSQL.
 
+As consultas são feitas com SQL parametrizado, usando ? nos comandos SQL, o que ajuda a evitar concatenação insegura de dados nas consultas. O banco é criado automaticamente pelo arquivo app/db.py e armazenado no arquivo achei.db.
 ---
 
 # 6. Equipe
