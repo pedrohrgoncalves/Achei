@@ -31,12 +31,12 @@ O repositório deverá seguir a seguinte organização:
 │   ├── Requisitos/        # Documento de requisitos, casos de uso e regras de negócio
 │   ├── Padrões Adotados/         
 │
-├── src/                   # Código-fonte da aplicação
+├── Achei!/                # Código-fonte da aplicação
 │   ├── backend/           # Código do backend
 │   ├── frontend/          # Código do frontend
 │   └── database/          # Scripts de banco de dados
-│
-├── tests/                 # Testes do sistema
+│   └── tests/             # Testes do sistema
+│                
 │
 ├── README.md              # Descrição geral do projeto
 └── .gitignore             # Arquivos e pastas ignorados pelo Git
