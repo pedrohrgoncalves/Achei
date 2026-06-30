@@ -27,20 +27,18 @@ Entre na pasta do projeto e rode:
 py -m venv .venv
 .venv\Scripts\activate.bat
 pip install -r requirements.txt
+```
+Rodar os testes unitários:
+```
+python -m pytest
+```
+O relatório HTML fica em: 
+htmlcov/index.html
+
+```
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
 ```
 
-O backend ficará disponível em:
-
-```text
-http://127.0.0.1:8000
-```
-
-A documentação automática da API fica em:
-
-```text
-http://127.0.0.1:8000/docs
-```
 
 ## Como rodar o frontend
 
@@ -48,7 +46,7 @@ Com o backend já ligado, abra outro terminal:
 
 ```cmd
 cd frontend
-py -m http.server 5500
+python -m http.server 5500
 ```
 
 Depois acesse:
@@ -57,7 +55,19 @@ Depois acesse:
 http://127.0.0.1:5500
 ```
 
-Também é possível abrir diretamente o arquivo `frontend/index.html`, mas o servidor local é mais recomendado.
+Comandos principais em sequência
+```
+python -m venv .venv
+.venv\Scripts\activate.bat
+python -m pip install -r requirements.txt
+python -m pytest
+python -m uvicorn app.main:app --reload
+```
+Para o frontend, em outro terminal:
+```
+cd frontend
+python -m http.server 5500
+```
 
 ## Permissões por perfil
 
