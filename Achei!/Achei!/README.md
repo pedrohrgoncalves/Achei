@@ -24,7 +24,7 @@ A versão inclui:
 Entre na pasta do projeto e rode:
 
 ```cmd
-py -m venv .venv
+python -m venv .venv
 .venv\Scripts\activate.bat
 pip install -r requirements.txt
 ```
