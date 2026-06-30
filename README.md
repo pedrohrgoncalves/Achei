@@ -37,10 +37,12 @@ O repositório deverá seguir a seguinte organização:
 │   └── scripts/           # Scripts de banco de dados
 │   └── tests/             # Testar requisições do sistema
 │                
-│
-├── README.md              # Descrição geral do projeto
-└── .gitignore             # Arquivos e pastas ignorados pelo Git
+├── achei.db
+├── requirements.txt
+├── README.md
+└── ABRIR_FRONTEND.html
 ```
+### Pastas e arquivos internos estão detalhados na sessão 5: Organização do Projeto
 
 ## 2.2. Regras de Branches
 
@@ -319,10 +321,39 @@ Essa prática ajuda a diferenciar valores fixos de variáveis comuns, facilitand
 ---
 # 5. Organização do Projeto
 
-O projeto Achei! está estruturado para garantir uma separação clara entre a interface do usuário, a lógica de servidor, os testes e os arquivos auxiliares. A organização segue o modelo abaixo:
 
-Descrição dos Diretórios
-app/
+O projeto **Achei!** está estruturado para garantir uma separação clara entre a interface do usuário, a lógica de servidor, os testes automatizados e os arquivos auxiliares.
+
+A organização geral do projeto segue o modelo abaixo:
+
+```text
+Achei/
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── db.py
+│   └── schemas.py
+│
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   └── README_FRONTEND.md
+│
+├── tests/
+│   └── test_crud.py
+│
+├── scripts/
+│   └── exemplo_requisicoes.http
+│
+├── achei.db
+├── requirements.txt
+├── README.md
+└── ABRIR_FRONTEND.html
+
+## Descrição dos Diretórios
+
+### app/
 
 Contém o backend da aplicação, desenvolvido com FastAPI.
 
@@ -334,7 +365,8 @@ main.py: arquivo principal da API. Contém as rotas do sistema, como login, cada
 db.py: responsável pela conexão com o banco SQLite, criação das tabelas e inserção dos usuários de demonstração.
 schemas.py: define os modelos de entrada de dados usados pelo FastAPI para validar as requisições.
 __init__.py: indica que a pasta app deve ser tratada como um pacote Python.
-frontend/
+
+###frontend/
 
 Contém a interface do sistema, desenvolvida com HTML, CSS e JavaScript.
 
@@ -346,22 +378,24 @@ index.html: estrutura principal da interface.
 style.css: estilização visual do sistema, incluindo o tema em azul suave e a responsividade.
 script.js: controla o login, permissões por perfil, exibição das funcionalidades e chamadas para a API do backend.
 README_FRONTEND.md: instruções específicas sobre o funcionamento do frontend.
-tests/
+
+### tests/
 
 Contém os testes automatizados do backend.
 
 Arquivos principais:
 
 test_crud.py: testa os principais fluxos do sistema, incluindo o CRUD de posto, item e termo de retirada.
-scripts/
+
+###scripts/
 
 Contém arquivos auxiliares para demonstração e teste da API.
 
 Arquivos principais:
 
 exemplo_requisicoes.http: arquivo com exemplos de requisições HTTP para testar as rotas sem precisar usar o frontend ou a documentação automática /docs.
-Arquivos da Raiz do Projeto
-achei.db
+
+###achei.db
 
 Arquivo do banco de dados SQLite.
 
@@ -372,8 +406,8 @@ requirements.txt
 Lista as dependências Python necessárias para rodar o backend.
 
 Exemplo de uso:
-
 pip install -r requirements.txt
+
 README.md
 
 Arquivo principal de documentação do projeto.
@@ -384,50 +418,14 @@ ABRIR_FRONTEND.html
 
 Arquivo auxiliar para abrir a interface do sistema no navegador de forma simples.
 
-Arquitetura de Dados
+## Arquitetura de Dados
 
 O sistema utiliza SQLite como banco de dados local e o módulo sqlite3 do Python para executar as operações no banco.
 
-Diferente de versões planejadas anteriormente, o projeto atual não utiliza Flask, SQLAlchemy, ORM ou PostgreSQL.
-
 As consultas são feitas com SQL parametrizado, usando ? nos comandos SQL. Essa abordagem evita a concatenação direta de dados nas consultas e reduz riscos de consultas inseguras.
 
-O banco é criado automaticamente pelo arquivo:
-
-app/db.py
-
-E armazenado no arquivo:
-
-achei.db
-Principais Tabelas Implementadas
-Tabela	Finalidade
-usuario	Armazena os usuários de teste e seus perfis de acesso.
-posto_apoio	Armazena os postos onde os itens podem ser entregues ou retirados.
-item	Registra itens perdidos, disponíveis para retirada ou retornados.
-termo_retirada	Formaliza a retirada de um item, vinculando item, posto e dados do retirante.
-Resumo da Arquitetura
-
-A arquitetura geral do sistema pode ser representada da seguinte forma:
-
-Frontend
-HTML + CSS + JavaScript
-        │
-        │ Requisições HTTP com fetch()
-        ▼
-Backend
-FastAPI + Python
-        │
-        │ Consultas SQL parametrizadas
-        ▼
-Banco de Dados
-SQLite
-
-O frontend é responsável pela interface e interação com o usuário.
-
-O backend é responsável pelas regras de negócio, permissões e persistência dos dados.
-
-O banco SQLite armazena os dados do sistema em um arquivo local.
----
+O banco é criado automaticamente pelo arquivo: app/db.py
+E armazenado no arquivo: achei.db
 
 # 6. Equipe
 
